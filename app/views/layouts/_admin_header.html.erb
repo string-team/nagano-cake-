@@ -1,0 +1,22 @@
+<!--岡本さんが作成した管理者側のヘッダーコードです-->
+<header>
+  <nav class = "navbar navbar-expand-lg">
+    <div class = "container">
+      <a class = "navbar-brand" href = "/"><span>LOGO</span></a>
+        <ul class = "navbar-nav ml-auto">
+          <% if admin_signed_in? %>
+            <li><%= link_to '商品一覧',items_path(current_customer) =%></li>
+            <li><%= link_to '会員一覧',customers_path(current_customer) =%></li>
+            <li><%= link_to '注文履歴一覧', ??_path =%></li>
+            <li><%= link_to 'ジャンル一覧', ??_path() =%></li>
+            <li><%= link_to 'ログアウト', destroy_admin_session_path =%></li>
+          <% else %>
+            <li><%= link_to 'About', home_about =%></li>
+            <li><%= link_to '商品一覧', items_path =%></li>
+            <li><%= link_to 'カート', ??_path() =%></li>
+            <li><%= link_to 'ログイン', admin_session_path =%></li>
+          <% end %>
+        </ul>
+    </div>
+  </nav>
+</header>

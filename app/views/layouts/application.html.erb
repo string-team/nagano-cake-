@@ -3,12 +3,20 @@
   <head>
     <title>NaganoCake</title>
     <%= csrf_meta_tags %>
-
+    <script src="https://kit.fontawesome.com/f0cd4e6274.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <% if admin_signed_in? %>
+      <%= render 'layouts/admin_header' %>
+    <% end %>
+    <% if customer_signed_in? %>
+      <%= render 'layouts/customer_header' %>
+    <% end %>
+    <main>
+      <%= yield %>
+    </main>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

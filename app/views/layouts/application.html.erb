@@ -10,9 +10,7 @@
   <body>
     <header>
     <% if admin_signed_in? %>
-      <%= render 'layouts/admin_header' %>
     <% elsif customer_signed_in? %>
-      <%= render 'layouts/customer_header' %>
     <% else %>
       <a class = "navbar-brand" href = "/"><span>LOGO</span></a>
       <ul class = "navbar-nav ml-auto">

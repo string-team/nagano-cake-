@@ -8,7 +8,10 @@ class Customer::OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
     @cart_items = CartItem.where(customer_id: current_customer.id)
-    
+    @total = 0
+  end
+  
+  def complete
   end
   
   

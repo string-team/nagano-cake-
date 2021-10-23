@@ -8,24 +8,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <header>
-    <% if admin_signed_in? %>
-      <%= render 'layouts/admin_header' %>
-    <% elsif customer_signed_in? %>
-      <%= render 'layouts/customer_header' %>
-    <% else %>
-      <a class = "navbar-brand" href = "/"><span>LOGO</span></a>
-      <ul class = "navbar-nav ml-auto">
-        <li><%= link_to 'About', about_path =%></li>
-        <li><%= link_to '商品一覧', items_path =%></li>
-        <li><%= link_to '新規登録', new_customer_session_path =%></li>
-        <li><%= link_to 'ログイン', customer_session_path =%></li>
-      </ul>
-    <% end %>
-    </header>
+    <%= render 'layouts/header' %>
     <main>
       <%= yield %>
     </main>
-    <%= render 'layouts/bookers2_footer' %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

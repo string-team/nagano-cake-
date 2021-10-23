@@ -1,0 +1,31 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-lg-12">
+      <div class = "col-lg-3">
+        <%= render "customer/item_sidebar", genres :@genres %>
+      </div>
+      <div class = "col-lg-9">
+        <div class = "row">
+          <div class = "col-lg-4">
+            <%= attachment_image_tag(@item, :image,size: "512x288", fallback: "no_image.jpg") %>
+          </div>
+          <div class = "col-lg-5">
+            <div class = "item_description">
+              <table>
+                <tr><h3><%= @item.name %></h3></tr>
+                <tr><%= @item.introduction %></tr>
+                <tr></tr>
+                <tr><h2>¥ <%= @item_tax_price %></h2>(税込)</tr>
+                <tr>
+                  <% form_with model: @item, url: customer_cart_items_path do |f| %>
+                  <th><%= f.select :amount, options_for_select([*(1..10)]), {include_blank: "個数選択"} %></th>
+                  <th><%= f.submit "カートに入れる", class: "btn btn-primary" %></th>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="haikei">
+<div class="row mt-5" style="width: 100%; margin-bottom:300px">
+ <div style="width: 800px; margin:0 auto;">
+   <h4 class="mypage">
+     マイページ
+   </h4>
+   <h5 class="d-inline-block mt-5 mr-5 font-weight-bold">登録情報</h5>
+   <%= link_to '編集する', customers_edit_path, class: "btn col-sm-2 ari areare" %><br>
+   <table id="customers-table" class="table mt-3">
+     <tr>
+       <td class="color">
+         氏名
+       </td>
+       <td>
+         <%= @customer.first_name %> <%= @customer.last_name %>
+       </td>
+     </tr>
+     <tr>
+       <td class="color">
+         カナ
+       </td>
+       <td>
+         <%= @customer.first_name_kana %><%= @customer.last_name_kana %>
+       </td>
+     </tr>
+     <tr>
+       <td class="color">
+         郵便番号
+       </td>
+       <td>
+         <%= @customer.postal_code %>
+       </td>
+     </tr>
+     <tr>
+       <td class="color">
+         住所
+       </td>
+       <td>
+         <%= @customer.address %>
+       </td>
+     </tr>
+     <tr>
+       <td class="color">
+         電話番号
+       </td>
+       <td>
+         <%= @customer.telephone_number %>
+       </td>
+     </tr>
+     <tr>
+       <td class="color">
+         メールアドレス
+       </td>
+       <td>
+         <%= @customer.email %>
+       </td>
+     </tr>
+   </table>
+   <h5 class="d-inline-block col-sm-2 mt-8 mr-5 font-weight-bold">配送先</h5>
+   <%= link_to '一覧を見る', addresses_path, class: "btn  col-sm-3 ari areare" %><br>
+   <h5 class="d-inline-block col-sm-2 mt-3 mr-5 font-weight-bold">注文履歴</h5>
+   <%= link_to '一覧を見る', orders_path, class: "btn col-sm-3  ari areare"  %>
+
+ </div>
+</div>
+</div>

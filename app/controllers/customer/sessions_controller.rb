@@ -9,10 +9,10 @@ class Customer::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # POST /resource/sign_in
-   def create
+  #POST /resource/sign_in
+  #def create
      
-   end
+  #end
 
   # DELETE /resource/sign_out
   # def destroy
@@ -29,15 +29,11 @@ class Customer::SessionsController < Devise::SessionsController
   protected
   
   def customer_state
-<<<<<<< HEAD
     ## 【処理内容1】 入力されたemailからアカウントを1件取得
     @customer = Customer.find_by(email: params[:customer][:email])
     
     ## アカウントを取得できなかった場合、このメソッドを終了する
-=======
-    @customer = Customer.find_by(email: params[:customer][:email])
->>>>>>> 2b35b4e780fba1eb4f833b1b11d14faba25ddbe3
-    return if !@customer
+    return if @customer
     if @customer.valid_password?(params[:customer][:password]) && !@customer.is_deleted
     else
       redirect_to new_customer_registration_path

@@ -1,6 +1,6 @@
 <div class="container">
 <h2>注文情報確認</h2>
-<%= form_with (model: @order,local: true) do |f| %>
+<%= form_for @order,local: true do |f| %>
 <!--テーブル税込、数量、小計-->
 <div class = "row">
   <div class = "col">
@@ -14,7 +14,6 @@
             </tr>
         </thead>
         <tbody>
-          <% @total = 0 %>
             <% @cart_items.each do |cart_item| %>
             <tr>
               <td>
@@ -31,7 +30,7 @@
                   <%= cart_item.item.price*1.1*cart_item.amount %>
               </td>
             </tr>
-            <%= @total += cart_item.item.price*1.1*cart_item.amount %>
+            <% @total += cart_item.item.price*1.1*cart_item.amount %>
             <% end %>
         </tbody>
     </table>
@@ -55,10 +54,10 @@
 </div>
 
 <h2>支払方法</h2>
-<%= @order.payment_method %>
+<%= @order.payment_method_i18n %>
 
 <h2>お届け先</h2>
-<%= @order.postal_code %>
+〒<%= @order.postal_code %>
 <%= @order.address %>
 <%= @order.name %>
 

@@ -51,34 +51,27 @@ Genre.find_or_create_by(id: 4) do |genre|
  genre.name = "キャンディ"
 end
 
-# Item.find_or_create_by(id: 1) do |item|
-#  item.genre_id = "1"
-#  item.name = "ショートケーキ"
-#  item.image_id = "no_image.jpg"
-#  item.introduction = "売上1位です！"
-#  item.price = "300"
-# end
-
-# Item.find_or_create_by(id: 2) do |item|
-#  item.genre_id = "2"
-#  item.name = "焼きプリン"
-#  item.image_id = "no_image.jpg"
-#  item.introduction = "香ばしくておいしい！"
-#  item.price = "200"
-# end
-
-# Item.find_or_create_by(id: 3) do |item|
-#  item.genre_id = "3"
-#  item.name = "チョコクッキー"
-#  item.image_id = "no_image.jpg"
-#  item.introduction = "おやつに最適！"
-#  item.price = "150"
-# end
-
-# Item.find_or_create_by(id: 4) do |item|
-#  item.genre_id = "4"
-#  item.name = "ミルクキャンディ"
-#  item.image_id = "no_image.jpg"
-#  item.introduction = "10粒入りです！"
-#  item.price = "120"
-# end
+Item.create(
+ genre_id: "1",
+ name: "ショートケーキ",
+ image: File.open("./app/assets/images/no_image.jpg"),
+ introduction: "売上1位です！",
+ price: "300")
+Item.create(
+ genre_id: "2",
+ name: "焼きプリン",
+ image: File.open("./app/assets/images/no_image.jpg"),
+ introduction: "香ばしくておいしい！",
+ price: "200")
+Item.create(
+ genre_id: "3",
+ name: "チョコクッキー",
+ image: File.open("./app/assets/images/no_image.jpg"),
+ introduction: "おやつに最適！",
+ price: "150")
+Item.create(
+ genre_id: "4",
+ name: "ミルクキャンディ",
+ image: File.open("./app/assets/images/no_image.jpg"),
+ introduction: "10粒入りです！",
+ price: "120")

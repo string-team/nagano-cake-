@@ -22,10 +22,7 @@
         <tbody>
           <% @cart_items.each do |cart_item| %>
             <tr>
-              <td>
-                <%= attachment_image_tag(cart_item.item, :image, :fill, 100, 100, fallback: "no_image.jpg") %>
-                <%= cart_item.item.name %>
-              </td>
+              <td><%= attachment_image_tag(cart_item.item, :image, :fill, 50, 50, fallback: "no_image.jpg") %></td>
               <td><%= cart_item.item.price*1.1 %></td>
               <td>
                 [数量変更のプルダウンメニュー]

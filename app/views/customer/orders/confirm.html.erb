@@ -21,16 +21,16 @@
                 <%= cart_item.item.name %>
               </td>
               <td>
-                  <%= cart_item.item.price*1.1 %>
+                  <%= (cart_item.item.price*1.1).round.to_s(:delimited) %>
               </td>
               <td>
                   <%= cart_item.amount %>
               </td>
               <td>
-                  <%= cart_item.item.price*1.1*cart_item.amount %>
+                  <%= (cart_item.item.price*1.1*cart_item.amount).round.to_s(:delimited) %>
               </td>
             </tr>
-            <% @total += cart_item.item.price*1.1*cart_item.amount %>
+            <% @total += (cart_item.item.price*1.1*cart_item.amount).round.to_s(:delimited) %>
             <% end %>
         </tbody>
     </table>

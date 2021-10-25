@@ -33,20 +33,29 @@ class Customer::OrdersController < ApplicationController
     @order.save
       @cart_items = current_customer.cart_items.all
       @cart_items.each do |cart_item|
-        @order_items = @order.order_items.new
-        @order_items.item_id = cart_item.item.id
-        @order_items.name = cart_item.item.name
-        @order_items.price = cart_item.item.price
-        @order_items.quantity = cart_item.amount
-        @order_items.save
-      
-    @cart_items = destroy_all
+        @order_details = @order.order_details.new
+        @order_details.item_id = cart_item.item.id
+        @order_details.price = cart_item.item.price
+        @order_details.amount = cart_item.amount
+        @order_details.save
+      end
+    @cart_items.destroy_all
     redirect_to orders_complete_path
   end
+  
   
   def complete
   end
   
+  def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
+    @total = 0
+  end
+  
+  def index
+    @order = Order.all
+  end
   
   private
   

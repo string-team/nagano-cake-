@@ -12,6 +12,7 @@ class Customer::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item_tax_price = @item.price * 1.1
     @genres = Genre.all
+    @cart_items = CartItem.new
   end
   
 end

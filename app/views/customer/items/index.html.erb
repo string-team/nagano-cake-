@@ -1,4 +1,4 @@
-<div class = "container">
+<div class = "container mt-5">
   <div class = "row">
       <div class = "col-lg-3 mt-5">
         <%= render 'sidebar', genres: @genres %>
@@ -16,7 +16,7 @@
             </br>
             <%= link_to item.name, item_path(item) %>
             </br>
-            ¥<%= (item.price * 1.1) %>
+            ¥<%= (item.price * 1.1).round.to_s(:delimited) %>
           </div>
         <% end %>
         <div class = "text-center">

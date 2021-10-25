@@ -87,13 +87,13 @@ Item.create!(
 CartItem.create!(
  item_id: '1',
  customer_id: '1',
- amount: '3'
+ amount: '4'
 )
 
 CartItem.create!(
  item_id: '2',
  customer_id: '1',
- amount: '4'
+ amount: '5'
 )
 
 CartItem.create!(

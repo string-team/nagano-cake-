@@ -25,16 +25,14 @@
                 <%= attachment_image_tag(cart_item.item, :image, :fill, 50, 50, fallback: "no_image.jpg") %>
                 <%= cart_item.item.name %>
               </td>
-              <td><%= (cart_item.item.price * 1.1).round.to_s(:delimited) %></td>
+              <td>¥ <%= (cart_item.item.price * 1.1).round.to_s(:delimited) %></td>
               <td>
                 <%= form_for cart_item, url:cart_item_path(cart_item.item_id), method: :patch do |f| %>
                   <%= f.select :amount, {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5,} %>
                   <%= f.submit "変更", class: "btn btn-sm btn-success" %>
                 <% end %>
               </td>
-              <td>
-                <%= (cart_item.item.price * 1.1 * cart_item.amount).round.to_s(:delimited) %>
-              </td>
+              <td>¥ <%= (cart_item.item.price * 1.1 * cart_item.amount).round.to_s(:delimited) %></td>
               <td><%= link_to '削除する', cart_item_path(cart_item), method: :delete, class: "btn btn-sm btn-danger"%></td>
             </tr>
           <% end %>
@@ -42,8 +40,8 @@
           <tr>
             <td><%= link_to '買い物を続ける', root_path, class: "btn btn-sm btn-primary" %></td>
             <td colspan="2"></td>
-            <td>合計金額</td>
-            <td><%= @total.round.to_s(:delimited)%></td>
+            <td><h5>合計金額</h5></td>
+            <td><h5>¥ <%= @total.round.to_s(:delimited)%></h5></td>
           </tr>
         </tbody>
       </table>

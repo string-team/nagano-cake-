@@ -20,12 +20,12 @@
             <tr>
               <td>
                 <span class='mr-3'><%= attachment_image_tag(cart_item.item, :image, :fill, 50, 50, fallback: "no_image.jpg") %></span>
-                <span><%= cart_item.item.name %></span>
+                <%= cart_item.item.name %>
               </td>
               <td class='align-middle'>¥ <%= (cart_item.item.price * 1.1).round.to_s(:delimited) %></td>
               <td class='text-center align-middle'>
                 <%= form_for cart_item, url:cart_item_path(cart_item.item_id), method: :patch do |f| %>
-                  <%= f.select :amount, {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5} %>
+                  <span class='mr-1 align-middle'><%= f.select :amount, {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5} %></span>
                   <%= f.submit "変更", class: "btn btn-sm btn-success" %>
                 <% end %>
               </td>

@@ -60,7 +60,6 @@
 〒<%= @order.postal_code %>
 <%= @order.address %>
 <%= @order.name %>
-
 <%= f.hidden_field :payment_method ,:value => @order.payment_method %>
 <%= f.hidden_field :shipping_cost ,:value => 800 %>
 <%= f.hidden_field :address,:value => @order.address %>

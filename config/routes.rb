@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   patch "/customers/withdraw" => "customer/customers#withdraw"
   
   delete "/cart_items/destroy_all" => "customer/cart_items#destroy_all"
-  post "/orders/confirm" => "customer/orders#comfirm"
+  post "/orders/confirm" => "customer/orders#confirm"
   get "/orders/complete" => "customer/orders#complete"
 
   scope module: :customer do

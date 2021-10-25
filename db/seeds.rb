@@ -55,15 +55,15 @@ Genre.create!(
 Item.create!(
   genre_id: '1',
   name: 'ショートケーキ',
-  image_id: File.open('./app/assets/images/no_image.jpg'),
+  image: File.open('./app/assets/images/no_image.jpg'),
   introduction: '売上1位です！',
   price: '300'
 )
- 
+
 Item.create!(
  genre_id: '2',
  name: '焼きプリン',
- image_id: File.open('./app/assets/images/no_image.jpg'),
+ image: File.open('./app/assets/images/no_image.jpg'),
  introduction: '香ばしくておいしい！',
  price: '200'
 )
@@ -71,7 +71,7 @@ Item.create!(
 Item.create!(
  genre_id: '3',
  name: 'チョコクッキー',
- image_id: File.open('./app/assets/images/no_image.jpg'),
+ image: File.open('./app/assets/images/no_image.jpg'),
  introduction: 'おやつに最適！',
  price: '150'
 )
@@ -79,7 +79,7 @@ Item.create!(
 Item.create!(
  genre_id: '4',
  name: 'ミルクキャンディ',
- image_id: File.open('./app/assets/images/no_image.jpg'),
+ image: File.open('./app/assets/images/no_image.jpg'),
  introduction: '10粒入りです！',
  price: '120'
 )

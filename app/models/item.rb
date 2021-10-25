@@ -7,4 +7,6 @@ class Item < ApplicationRecord
     price * 1.1
   end
 
+  attachment :image
+
 end

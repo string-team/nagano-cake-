@@ -22,7 +22,7 @@
           <% @cart_items.each do |cart_item| %>
             <tr>
               <td>
-                画像
+                <%= attachment_image_tag(cart_item.item, :image, :fill, 50, 50, fallback: "no_image.jpg") %>
                 <%= cart_item.item.name %>
               </td>
               <td><%= (cart_item.item.price * 1.1).round.to_s(:delimited) %></td>

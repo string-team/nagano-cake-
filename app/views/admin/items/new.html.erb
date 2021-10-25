@@ -1,12 +1,13 @@
 <div class = "container">
   <div class = "row-lg-10">
     <h3 class = "text-left"><span>商品新規登録</span></h3>
-      <%= render "items/error_message", item :@item %>
+      <%= render 'error_message', item: @item %>
     <div class = "col-lg-3"></div>
     <div class = "col-lg-6">
-      <% form_with model: @item, url:'admin_items_path', local:true do |f| %>
-        <%= render "items/form", resource: @item, genres :@genres %>
-        <%= f.submit "新規登録", class : "btn btn-primary col-lg-12" %>
+      <% form_for model: @item, url:admin_items_path, method: :create do |f| %>
+        <%= render 'form', genres: @genres %>
+        <%= f.submit "新規登録", class: "btn btn-primary col-lg-12" %>
+      <% end %>
     </div>
     <div class = "col-lg-3"></div>
   </div>

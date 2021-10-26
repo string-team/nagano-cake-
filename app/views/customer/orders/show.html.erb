@@ -1,6 +1,17 @@
-<h1>注文履歴詳細</h1>
-
-<table border = "1" align = "right" >
+<div class = "container">
+  <p class = "bg-light">
+    <h1>注文履歴詳細</h1>
+  </p>
+<div class = "row">
+  <div class = "col-md-7">
+    <h5>注文情報</h5>
+  </div>
+  <div class = "col-md-5">
+    <h5>請求情報</h5>
+  </div>
+<!--<div class = "row">-->
+  <div class = "col-md-7">
+    <table border = "1">
       <tr>
         <th>注文日</th>
         <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
@@ -22,31 +33,9 @@
         <td><%= @order.status_i18n %></td>
       </tr>
     </table>
-    
-    <h5>注文内容</h5>
-    <table border = "1" align = "left" >
-        <thead>
-            <tr align = "center">
-                <th>商品</th>
-                <th>単価（税込）</th>
-                <th>個数</th>
-                <th>小計</th>
-            </tr>
-        </thead>
-        <tbody>
-          <% @order_details.each do |order_detail| %>
-        <tr>
-          <td><%= order_detail.item.name %></td>
-          <td><%= order_detail.price %></td>
-          <td><%= order_detail.amount %></td>
-          <td><%= (order_detail.price*order_detail.amount).round %>
-              <% @total += (order_detail.price*order_detail.amount) %>
-          </td>
-        </tr>
-      <% end %>
-    
-    <h5>請求情報</h5>
-    <table border = "1" align = "left" >
+  </div>
+  <div class = "col-md-5">
+    <table border = "1" >
       <tr>
         <th>商品合計</th>
         <td><%= @total %></td>
@@ -60,3 +49,34 @@
         <td><%= @total + 800 %></td>
       </tr>
     </table>
+  </div>
+  <!--<div class = "row">-->
+    <div class = "col-md-12 mt-4">
+      <h5>注文内容</h5>
+    </div>
+    <div class = "col-md-12">
+    <table border = "1">
+      <thead>
+        <tr align = "center">
+          <th>商品</th>
+          <th>単価（税込）</th>
+          <th>個数</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order_details.each do |order_detail| %>
+        <tr>
+          <td><%= order_detail.item.name %></td>
+          <td><%= order_detail.price %></td>
+          <td><%= order_detail.amount %></td>
+          <td>
+            <%= (order_detail.price*order_detail.amount).round %>
+            <% @total += (order_detail.price*order_detail.amount) %>
+          </td>
+        </tr>
+        <% end %>
+    </table>
+    </div>
+  </div>
+</div>

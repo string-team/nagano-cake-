@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :customers,skip: [:passwords,], controllers: {
-    registrations: "customer/registrations",
-    sessions: 'customer/sessions'
-  }
+  
   
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
@@ -28,6 +25,10 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :new, :create]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
+  devise_for :customers,skip: [:passwords,], controllers: {
+    registrations: "customer/registrations",
+    sessions: 'customer/sessions'
+  }
 
   get "/admin" => "admin/homes#top"
 

@@ -4,14 +4,13 @@
       <div class="filed">
        <%= form_for @customer, url: customers_path, method: 'PATCH' do |f| %>
        <%= f.label "氏名", class: "col-sm-3 col-form-label mt-1" %>
-       <%= f.text_field :first_name, autofocus: true, placeholder: "山田", class: "col-sm-3 col-form-control mt-1"%>
        <%= f.text_field :last_name, autofocus: true, placeholder: "花子", class: "col-sm-3 col-form-control mt-1" %>
+       <%= f.text_field :first_name, autofocus: true, placeholder: "山田", class: "col-sm-3 col-form-control mt-1"%>
       </div>
       <div class="field">
        <%= f.label "フリガナ", class: "col-sm-3 col-form-label mt-1"%>
-       <%= f.text_field :first_name_kana, autofocus: true, placeholder: "ヤマダ", class: "col-sm-3 col-form-control mt-1" %>
-       <span class="span_name1"> </span>
        <%= f.text_field :last_name_kana, autofocus: true, placeholder: "ハナコ", class: "col-sm-3 col-form-control mt-1" %>
+       <%= f.text_field :first_name_kana, autofocus: true, placeholder: "ヤマダ", class: "col-sm-3 col-form-control mt-1" %>
       </div>
       <div class="field">
        <%= f.label "メールアドレス", class: "col-sm-3 col-form-label mt-1" %>

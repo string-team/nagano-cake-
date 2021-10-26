@@ -61,3 +61,31 @@
    padding: 20px 30px;
    text-align: center;
   }
+  
+
+
+
+.haikeitop {
+  background: linear-gradient(-45deg, rgba(246, 255, 0, .8), rgba(255, 0, 101, .8)) fixed, url(https://ximg.retty.me/resize/s880x880/-/retty/img_ebisu/restaurant/100001249452/archive/1417265-5e30e8055eb43.jpg) fixed;
+  background-size: cover;
+}
+
+.haikeitop {
+  text-align: center;
+}
+.tophaikei {
+  font-family: Meiryo, "Hiragino Kaku Gothic Pro W3", Courier New, sans-serif;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  color: black;
+}
+
+.syouhintop {
+	margin: 10px auto;
+	padding: 5px 10px;
+	box-sizing: border-box;
+}
+
+.syouhin {
+	display: flex;
+}

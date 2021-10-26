@@ -6,15 +6,14 @@ class Item < ApplicationRecord
   
   attachment :image
   
-  # validates :genre_id, presence: true
   validates :name, presence: true
   validates :image, presence: true
   validates :introduction, presence: true
   validates :price, presence: true
   validates :is_active, presence: true
-  
-  # Kaminari.configure do |config|
-  #   config.default_per_page = 10 # この数字でkaminariを使用したすべてのページの1ページあたりの表示上限件数を指定
-  # end
+
+  def taxin_price
+    price * 1.1
+  end
 
 end

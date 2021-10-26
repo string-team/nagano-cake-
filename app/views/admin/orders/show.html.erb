@@ -11,7 +11,7 @@
 
       <div class="row">
          <p class="col-md-2">注文日</p>
-         <p class="col-md-10"><%= @order.created_at.to_s(:date_jp) %></p>
+         <p class="col-md-10"><%= @order.created_at.strftime('%Y/%m/%d') %></p>
       </div>
 
       <div class="row">
@@ -57,11 +57,12 @@
                       <td><%= order_detail.item.name %></td>
                       <td><%= order_detail.price.to_s(:delimited) %></td>
                       <td><%= order_detail.amount %></td>
-                      <td><%= ((order_detail.price)*(order_detail.amount)) %> </td>
+                      <td><%= ((order_detail.price)*(order_detail.amount)).to_s(:delimited) %> </td>
                       <td>
                          <%= form_for order_detail, url:admin_order_detail_path(order_detail.id), method: :PATCH, local: true do |f| %>
-                         <%= f.select :making_status, OrderDetail.making_statuses.keys.map {|k| [I18n.t("enums.orderdetail.making_status.#{k}"), k]} %>
-                         ["impossible","wait","making","done"] %>
+                         <%= f.select :making_status, OrderDetail.making_statuses.keys.map {|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]} %>
+                         <!--↓これでもいける-->
+                         <%#= f.select :making_status, OrderDetail.making_statuses_i18n.invert %>
                          <%= f.submit '更新',class:"btn btn-outline-success" %>
                          <% end %>
                       </td>
@@ -72,9 +73,9 @@
          </div>
          <div class="col-md-4 d-flex align-items-end ">
             <div class="ml-5">
-               <p>商品合計　　　<%= @order.total_payment %>円 </p>
-               <p>送料　　　　　<%= @order.shipping_cost %>円</p>
-               <p>請求金額合計　<%= (@order.total_payment+@order.shipping_cost) %>円</p>
+               <p>商品合計　　　<%= (@order.total_payment).round.to_s(:delimited) %>円 </p>
+               <p>送料　　　　　<%= (@order.shipping_cost).round.to_s(:delimited) %>円</p>
+               <p>請求金額合計　<%= (@order.total_payment+@order.shipping_cost).round.to_s(:delimited) %>円</p>
             </div>
          </div>
       </div>

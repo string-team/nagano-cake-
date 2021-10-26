@@ -29,13 +29,14 @@ class Customer::SessionsController < Devise::SessionsController
   protected
   
   def customer_state
+    byebug
+
+   
     ## 【処理内容1】 入力されたemailからアカウントを1件取得
     @customer = Customer.find_by(email: params[:customer][:email])
     
     ## アカウントを取得できなかった場合、このメソッドを終了する
-    return if @customer
-    if @customer.valid_password?(params[:customer][:password]) && !@customer.is_deleted
-    else
+    if @customer.valid_password?(params[:customer][:password]) && @customer.is_deleted
       redirect_to new_customer_registration_path
     end
   end

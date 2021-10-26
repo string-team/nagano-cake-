@@ -68,10 +68,10 @@
        <%= f.label "会員ステータス", class: "col-form-label mt-1" %>
       </td>
       <td>
-       <%= f.radio_button :is_deleted, "有効" %>
-       <%= f.label :is_deleted, "有効", value:"有効" %>
-       <%= f.radio_button :is_deleted, "無効" %>
-       <%= f.label :is_deleted, "無効", value:"無効" %>
+       <%= f.radio_button :is_deleted, :"active" %>
+       <%= f.label :is_deleted, "有効" %>
+       <%= f.radio_button :is_deleted, :"retire" %>
+       <%= f.label :is_deleted, "無効" %>
       </td>
       </tr>
    </table>

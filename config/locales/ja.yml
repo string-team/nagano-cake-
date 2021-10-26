@@ -18,3 +18,8 @@ ja:
         wait: "製作待ち"
         making: "製作中"
         done: "製作完了"
+    
+    customer:
+      is_deleted:
+      　default: "有効"
+      　null: "退会"

@@ -12,7 +12,6 @@ class Customer::CustomersController < ApplicationController
     @cusomer = current_customer
     if @cusomer.update(customer_params)
       redirect_to customers_my_page_path
-      flash[:notice_customer] = "会員情報が更新されました。"
     else
       @customer = current_customer
       render :edit
@@ -25,7 +24,6 @@ class Customer::CustomersController < ApplicationController
     @customer = current_customer
     @customer.update(is_deleted: true)
     reset_session
-    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
     redirect_to new_customer_session_path
   end
   

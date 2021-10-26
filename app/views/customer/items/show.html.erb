@@ -19,13 +19,14 @@
                 <tr>
                   <%= form_for @cart_items, url:cart_items_path do |f| %>
                     <th><%= f.select :amount, options_for_select([*(1..10)]), {include_blank: "個数選択"} %></th>
+                    <th><%= f.hidden_field :item_id, :value => @item.id %></th>
                     <th><%= f.submit "カートに入れる", class: "btn btn-primary" %></th>
-                <% end %>
-                <% else %>
-                  <%= form_for @cart_items, url:new_customer_session_path do |f| %>
-                    <th><%= f.select :amount, options_for_select([*(1..10)]), {include_blank: "個数選択"} %></th>
-                    <th><%= f.submit "カートに入れる", class: "btn btn-primary" %></th>
-                <% end %>
+                  <% end %>
+              <% else %>
+                </br>
+                  <%= link_to cart_items_path do %>
+                    <button type="button" class="btn btn-primary">ログイン</button>
+                  <% end %>
               <% end %>
               </tr>
             </table>

@@ -1,6 +1,4 @@
 class Admin::OrderDetailsController < ApplicationController
-<<<<<<< HEAD
-=======
   before_action :authenticate_admin!
 
   def update
@@ -15,5 +13,4 @@ class Admin::OrderDetailsController < ApplicationController
 		params.require(:order_detail).permit(:making_status)
 	end
 
->>>>>>> develop
 end

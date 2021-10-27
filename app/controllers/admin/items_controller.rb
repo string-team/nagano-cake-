@@ -1,6 +1,4 @@
 class Admin::ItemsController < ApplicationController
-<<<<<<< HEAD
-=======
   
   before_action :authenticate_admin!
   
@@ -49,5 +47,4 @@ class Admin::ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:genre_id, :name, :image, :introduction, :price, :is_active)
     end
->>>>>>> develop
 end

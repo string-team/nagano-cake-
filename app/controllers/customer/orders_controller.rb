@@ -1,6 +1,4 @@
 class Customer::OrdersController < ApplicationController
-<<<<<<< HEAD
-=======
   # before_action :authenticate_customer!
   # before_action :order_new?, only: [:new]
   
@@ -71,5 +69,4 @@ class Customer::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:payment_method, :address, :shipping_cost, :postal_code, :name, :total_payment)
   end
->>>>>>> develop
 end

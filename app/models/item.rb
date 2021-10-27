@@ -10,7 +10,8 @@ class Item < ApplicationRecord
   validates :image, presence: true
   validates :introduction, presence: true
   validates :price, presence: true
-  validates :is_active, presence: true
+  # validates :is_active, presence: true
+  validates :is_active, inclusion: [true, false]
 
   def taxin_price
     price * 1.1

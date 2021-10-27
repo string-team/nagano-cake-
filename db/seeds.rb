@@ -54,7 +54,7 @@ Genre.create!(
 Item.create!(
   genre_id: '1',
   name: 'ショートケーキ',
-  image: File.open('./app/assets/images/no_image.jpg'),
+  image: File.open('./app/assets/images/1.jpg'),
   introduction: '売上1位です！',
   price: '300'
 )
@@ -62,7 +62,7 @@ Item.create!(
 Item.create!(
  genre_id: '2',
  name: '焼きプリン',
- image: File.open('./app/assets/images/no_image.jpg'),
+ image: File.open('./app/assets/images/2.jpg'),
  introduction: '香ばしくておいしい！',
  price: '200'
 )
@@ -70,7 +70,7 @@ Item.create!(
 Item.create!(
  genre_id: '3',
  name: 'チョコクッキー',
- image: File.open('./app/assets/images/no_image.jpg'),
+ image: File.open('./app/assets/images/3.jpg'),
  introduction: 'おやつに最適！',
  price: '150'
 )
@@ -78,31 +78,7 @@ Item.create!(
 Item.create!(
  genre_id: '4',
  name: 'ミルクキャンディ',
- image: File.open('./app/assets/images/no_image.jpg'),
+ image: File.open('./app/assets/images/4.png'),
  introduction: '10粒入りです！',
  price: '120'
-)
-
-CartItem.create!(
- item_id: '1',
- customer_id: '1',
- amount: '4'
-)
-
-CartItem.create!(
- item_id: '2',
- customer_id: '1',
- amount: '5'
-)
-
-CartItem.create!(
- item_id: '3',
- customer_id: '1',
- amount: '2'
-)
-
-CartItem.create!(
- item_id: '4',
- customer_id: '1',
- amount: '1'
 )

@@ -34,10 +34,9 @@ class Customer::SessionsController < Devise::SessionsController
     @customer = Customer.find_by(email: params[:customer][:email])
     
     ## アカウントを取得できなかった場合、このメソッドを終了する
-   # return if @customer
-    if @customer.valid_password?(params[:customer][:password]) && !@customer.is_deleted
-    else
-      redirect_to new_customer_registration_path
+    #return if @customer
+    if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == "retire")
+       redirect_to new_customer_registration_path
     end
   end
 

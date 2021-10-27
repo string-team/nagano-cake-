@@ -2,7 +2,7 @@ class Customer::CartItemsController < ApplicationController
   before_action :authenticate_customer!
 
   def create
-		@item = Item.find(params[:item_id])
+		@item = Item.find(params[:cart_item][:item_id])
 		@cart_item = CartItem.new(cart_item_params)
 		@cart_item.item_id = @item.id
 		@cart_item.customer_id = current_customer.id

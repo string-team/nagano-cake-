@@ -1,0 +1,38 @@
+<div class = "container mt-5">
+  <div class = "row">
+    <div class = "col-lg-3">
+      <%= render "sidebar", genres: @genres %>
+    </div>
+    <div class = "col-lg-9">
+      <div class = "row">
+        <div class = "col-lg-4">
+          <%= attachment_image_tag(@item, :image,size: "240x216", fallback: "no_image.jpg") %>
+        </div>
+        <div class = "col-lg-8">
+          <div class = "item_description">
+            <table>
+              <tr><h3><%= @item.name %></h3></tr>
+              <tr><%= @item.introduction %></tr>
+              <tr></tr>
+              <tr><h2>¥ <%= @item_tax_price.round.to_s(:delimited) %></h2>(税込)</tr>
+              <% if customer_signed_in? %>
+                <tr>
+                  <%= form_for @cart_items, url:cart_items_path do |f| %>
+                    <th><%= f.select :amount, options_for_select([*(1..10)]), {include_blank: "個数選択"} %></th>
+                    <th><%= f.hidden_field :item_id, :value => @item.id %></th>
+                    <th><%= f.submit "カートに入れる", class: "btn btn-primary" %></th>
+                  <% end %>
+              <% else %>
+                </br>
+                  <%= link_to cart_items_path do %>
+                    <button type="button" class="btn btn-primary">ログイン</button>
+                  <% end %>
+              <% end %>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

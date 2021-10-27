@@ -1,0 +1,55 @@
+<div class="row mt-5" style="width: 100%; margin-bottom:300px">
+ <div style="width: 800px; margin:0 auto;">
+   <h4 class="mypage">
+     会員一覧
+   </h4>
+   <table class="table table-bordered mt-auto">
+    <thead>
+     <td>
+      会員ID
+     </td>
+     <td>
+      氏名
+     </td>
+     <td>
+      メールアドレス
+     </td>
+     <td>
+      ステータス
+     </td>
+    </thead>
+    <tbody>
+     <% @customers.each do |customer| %>
+     <tr>
+       <td>
+       <%= customer.id %>
+       </td>
+       <td>
+       <%= link_to customer.first_name, admin_customer_path(customer.id)  %>
+       <%= link_to customer.last_name, admin_customer_path(customer.id) %>
+       </td>
+       <td>
+       <%= customer.email %>
+       </td>
+       <% if customer.is_deleted == "retire" %>
+       <td>
+       <p>
+        無効
+       </p>
+       </td>
+       <% else %>
+       <td >
+        <P>
+        有効
+        </P>
+       </td>
+       <% end %>
+     </tr>
+     <% end %>
+     </tbody>
+    </table>
+    <tfoot>
+       <td>
+         <%= paginate @customers %>
+       </td>
+     </tfoot>

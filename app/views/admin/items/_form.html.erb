@@ -1,0 +1,26 @@
+<div class="form">
+  <%= f.attachment_field :image, class: " image" %>
+</div>
+<div class = "form">
+  <%= f.label :商品名, class: "col-lg-3" %>
+  <%= f.text_field :name, class: "col-lg-9" %>
+</div>
+<div class = "form">
+  <%= f.label :商品説明, class: "col-lg-3" %>
+  <%= f.text_area :introduction, class: "col-lg-9" %>
+</div>
+<div class = "form">
+  <%= f.label :ジャンル, class: "col-lg-3" %>
+  <%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --", class: "col-lg-9") %>
+</div>
+<div class = "form">
+  <%= f.label :税抜価格, class: "col-lg-3" %>
+  <%= f.text_field :price, class: "col-lg-9" %>
+</div>
+<div class = "form">
+  <%= f.label :販売ステータス, class: "col-lg-7" %>
+  <%= f.radio_button :is_active, true %>
+  <%= f.label :is_active, "販売中" %>
+  <%= f.radio_button :is_active, false %>
+  <%= f.label :is_active, "販売停止中" %>
+</div>

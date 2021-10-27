@@ -1,29 +1,82 @@
-<div class="row mt-5" style="width: 100%; margin-bottom:300px">
- <div style="width: 800px; margin:0 auto;">
-   <h4 class="mypage">
-     注文履歴詳細
-   </h4>
-   <table class="table table-bordered mt-5 w-75">
-      <therd>
-        <tr class="t">
-          <td>
-            注文日
-          </td>
-          <td>
-            配送先
-          </td>
-          <td>
-            注文商品
-          </td>
-          <td>
-            支払い金額
-          </td>
-          <td>
-            ステータス
-          </td>
-          <td>
-            注文詳細
-          </td>
+<div class = "container">
+  <p class = "bg-light">
+    <h1>注文履歴詳細</h1>
+  </p>
+<div class = "row">
+  <div class = "col-md-7">
+    <h5>注文情報</h5>
+  </div>
+  <div class = "col-md-5">
+    <h5>請求情報</h5>
+  </div>
+<!--<div class = "row">-->
+  <div class = "col-md-7">
+    <table border = "1">
+      <tr>
+        <th>注文日</th>
+        <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+      <tr>
+        <th>配送先</th>
+        <td>
+        <%= @order.postal_code %>
+        <%= @order.address %>
+        <%= @order.name %>
         </td>
-      </therd>
-   </table>
+      </tr>
+      <tr>
+        <th>支払方法</th>
+        <td><%= @order.payment_method_i18n %></td>
+      </tr>
+      <tr>
+        <th>ステータス</th>
+        <td><%= @order.status_i18n %></td>
+      </tr>
+    </table>
+  </div>
+  <div class = "col-md-5">
+    <table border = "1" >
+      <tr>
+        <th>商品合計</th>
+        <td><%= (@total).round.to_s(:delimited) %></td>
+      </tr>
+      <tr>
+        <th>送料</th>
+        <td>800</td>
+      </tr>
+      <tr>
+        <th>請求金額</th>
+        <td><%= (@total + 800).round.to_s(:delimited) %></td>
+      </tr>
+    </table>
+  </div>
+  <!--<div class = "row">-->
+    <div class = "col-md-12 mt-4">
+      <h5>注文内容</h5>
+    </div>
+    <div class = "col-md-12">
+    <table border = "1">
+      <thead>
+        <tr align = "center">
+          <th>商品</th>
+          <th>単価（税込）</th>
+          <th>個数</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order_details.each do |order_detail| %>
+        <tr>
+          <td><%= order_detail.item.name %></td>
+          <td><%= (order_detail.price).round.to_s(:delimited) %></td>
+          <td><%= order_detail.amount %></td>
+          <td>
+            <%= (order_detail.price*order_detail.amount).round.to_s(:delimited) %>
+            <% @total += (order_detail.price*order_detail.amount) %>
+          </td>
+        </tr>
+        <% end %>
+    </table>
+    </div>
+  </div>
+</div>

@@ -30,11 +30,18 @@ class Customer::SessionsController < Devise::SessionsController
   
   def customer_state
     ## 【処理内容1】 入力されたemailからアカウントを1件取得
+<<<<<<< HEAD
    
     @customer = Customer.find_by(email: params[:customer][:email])
     
     ## アカウントを取得できなかった場合、このメソッドを終了する
    # return if @customer
+=======
+    @customer = Customer.find_by(email: params[:customer][:email])
+    
+    ## アカウントを取得できなかった場合、このメソッドを終了する
+    return if @customer
+>>>>>>> develop
     if @customer.valid_password?(params[:customer][:password]) && !@customer.is_deleted
     else
       redirect_to new_customer_registration_path

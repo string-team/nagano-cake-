@@ -6,79 +6,103 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Admin.find_or_create_by(id: 1) do |admin|
- admin.email = "123456@gmail.com"
- admin.password = "123456"
-end
+Admin.create!(
+ email: '123456@gmail.com',
+ password: '123456'
+)
 
-Customer.find_or_create_by(id: 1) do |customer|
- customer.email = "taro@gmail.com"
- customer.password = "123456"
- customer.last_name = "山田"
- customer.first_name = "太郎"
- customer.last_name_kana = "ヤマダ"
- customer.first_name_kana = "タロウ"
- customer.postal_code = "1008111"
- customer.address = "東京都千代田区千代田１−１"
- customer.telephone_number = "09012345678"
-end
+Customer.create!(
+ email: 'taro@gmail.com',
+ password: '123456',
+ last_name: '山田',
+ first_name: '太郎',
+ last_name_kana: 'ヤマダ',
+ first_name_kana: 'タロウ',
+ postal_code: '1008111',
+ address: '東京都千代田区千代田１−１',
+ telephone_number: '09012345678'
+)
 
-Customer.find_or_create_by(id: 2) do |customer|
- customer.email = "hanako@gmail.com"
- customer.password = "123456"
- customer.last_name = "佐藤"
- customer.first_name = "花子"
- customer.last_name_kana = "サトウ"
- customer.first_name_kana = "ハナコ"
- customer.postal_code = "1638001"
- customer.address = "東京都新宿区西新宿２丁目８−１"
- customer.telephone_number = "08012345678"
-end
+Customer.create!(
+ email: 'hanako@gmail.com',
+ password: '123456',
+ last_name: '佐藤',
+ first_name: '花子',
+ last_name_kana: 'サトウ',
+ first_name_kana: 'ハナコ',
+ postal_code: '1638001',
+ address: '東京都新宿区西新宿２丁目８−１',
+ telephone_number: '08012345678'
+)
 
-Genre.find_or_create_by(id: 1) do |genre|
- genre.name = "ケーキ"
-end
+Genre.create!(
+ name: 'ケーキ'
+)
 
-Genre.find_or_create_by(id: 2) do |genre|
- genre.name = "プリン"
-end
+Genre.create!(
+ name: 'プリン'
+)
 
-Genre.find_or_create_by(id: 3) do |genre|
- genre.name = "焼き菓子"
-end
+Genre.create!(
+ name: '焼き菓子'
+)
 
-Genre.find_or_create_by(id: 4) do |genre|
- genre.name = "キャンディ"
-end
+Genre.create!(
+ name: 'キャンディ'
+)
 
-# Item.find_or_create_by(id: 1) do |item|
-#  item.genre_id = "1"
-#  item.name = "ショートケーキ"
-#  item.image_id = "no_image.jpg"
-#  item.introduction = "売上1位です！"
-#  item.price = "300"
-# end
+Item.create!(
+  genre_id: '1',
+  name: 'ショートケーキ',
+  image: File.open('./app/assets/images/no_image.jpg'),
+  introduction: '売上1位です！',
+  price: '300'
+)
 
-# Item.find_or_create_by(id: 2) do |item|
-#  item.genre_id = "2"
-#  item.name = "焼きプリン"
-#  item.image_id = "no_image.jpg"
-#  item.introduction = "香ばしくておいしい！"
-#  item.price = "200"
-# end
+Item.create!(
+ genre_id: '2',
+ name: '焼きプリン',
+ image: File.open('./app/assets/images/no_image.jpg'),
+ introduction: '香ばしくておいしい！',
+ price: '200'
+)
+ 
+Item.create!(
+ genre_id: '3',
+ name: 'チョコクッキー',
+ image: File.open('./app/assets/images/no_image.jpg'),
+ introduction: 'おやつに最適！',
+ price: '150'
+)
+ 
+Item.create!(
+ genre_id: '4',
+ name: 'ミルクキャンディ',
+ image: File.open('./app/assets/images/no_image.jpg'),
+ introduction: '10粒入りです！',
+ price: '120'
+)
 
-# Item.find_or_create_by(id: 3) do |item|
-#  item.genre_id = "3"
-#  item.name = "チョコクッキー"
-#  item.image_id = "no_image.jpg"
-#  item.introduction = "おやつに最適！"
-#  item.price = "150"
-# end
+CartItem.create!(
+ item_id: '1',
+ customer_id: '1',
+ amount: '4'
+)
 
-# Item.find_or_create_by(id: 4) do |item|
-#  item.genre_id = "4"
-#  item.name = "ミルクキャンディ"
-#  item.image_id = "no_image.jpg"
-#  item.introduction = "10粒入りです！"
-#  item.price = "120"
-# end
+CartItem.create!(
+ item_id: '2',
+ customer_id: '1',
+ amount: '5'
+)
+
+CartItem.create!(
+ item_id: '3',
+ customer_id: '1',
+ amount: '2'
+)
+
+CartItem.create!(
+ item_id: '4',
+ customer_id: '1',
+ amount: '1'
+)

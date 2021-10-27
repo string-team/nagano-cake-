@@ -1,6 +1,6 @@
 class Customer::OrdersController < ApplicationController
-  before_action :authenticate_customer!
-  before_action :order_new?, only: [:new]
+  # before_action :authenticate_customer!
+  # before_action :order_new?, only: [:new]
   
   def new
     @order = Order.new

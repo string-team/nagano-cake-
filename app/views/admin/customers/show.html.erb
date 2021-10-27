@@ -5,7 +5,7 @@
    </h4>
    <table id="customers-table" class="table mt-3">
      <tr>
-       <td class="color">
+       <td class="color" style="border:none;">
          会員ID
        </td>
        <td>
@@ -13,7 +13,7 @@
        </td>
      </tr>
      <tr>
-       <td class="color">
+       <td class="color" style="border:none;">
          氏名
        </td>
        <td>
@@ -21,7 +21,7 @@
        </td>
      </tr>
      <tr>
-       <td class="color">
+       <td class="color" style="border:none;">
          カナ
        </td>
        <td>
@@ -29,47 +29,47 @@
        </td>
      </tr>
      <tr>
-       <td class="color">
+       <td class="color" style="border:none;">
          郵便番号
        </td>
-       <td>
+       <td style="border:none;">
          <%= @customer.postal_code %>
        </td>
      </tr>
      <tr>
-       <td class="color">
+       <td class="color" style="border:none;">
          住所
        </td>
-       <td>
+       <td style="border:none;">
          <%= @customer.address %>
        </td>
      </tr>
      <tr>
-       <td class="color">
+       <td class="color" style="border:none;">
          電話番号
        </td>
-       <td>
+       <td style="border:none;">
          <%= @customer.telephone_number %>
        </td>
      </tr>
      <tr>
-       <td class="color">
+       <td class="color" style="border:none;">
          メールアドレス
        </td>
-       <td>
+       <td style="border:none;">
          <%= @customer.email %>
        </td>
      </tr>
      <tr>
-       <td class="color">
+       <td class="color" style="border:none;">
          会員ステータス
        </td>
       <% if @customer.is_deleted == "retire" %>
-       <td>
+       <td style="border:none;">
         無効
        </td>
        <% else %>
-       <td >
+       <td style="border:none;">
         有効
        </td>
        <% end %>

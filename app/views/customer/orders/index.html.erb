@@ -1,67 +1,38 @@
-<div class="row mt-5" style="width: 100%; margin-bottom:300px">
- <div style="width: 800px; margin:0 auto;">
-   <h4 class="mypage">
-     注文履歴一覧
-   </h4>
-   <table class="table table-bordered mt-5 w-75">
-      <thead>
-        <tr class="t">
-          <th>
-            注文日
-          </th>
-          <th>
-            配送先
-          </th>
-          <th>
-            注文商品
-          </th>
-          <th>
-            支払い金額
-          </th>
-          <th>
-            ステータス
-          </th>
-          <th>
-            注文詳細
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @order.each do |order| %>
-        <tr>
-          <th>
-            <%= order.created_at.strftime('%Y/%m/%d') %>
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <%= order.postal_code %>
-            <%= order.address %>
-            <%= order.name %>
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <% order.order_details.each do |order_detail|%>
-            <%= order_detail.item.name %>
-            <% end %>
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <%= order.total_payment %>
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <%= order.status_i18n %>
-          </th>
-        </tr>
-        <tr>
-        <% end %>
-          <th>
-            <%= link_to "表示する", order_path, class: "btn btn-success text-center btn-lg" %>
-          </th>
-        </tr>
-      </tbody>
-   </table>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-10 offset-md-1'>
+      <table class='table table-hover table-inverse table-striped table-bordered'>
+        <br/>
+        <div class="p-3 mb-2 bg-secondary text-white">
+          <h3>注文履歴一覧</h3>
+        </div>
+        <thead>
+          <tr>
+            <th class="text-center">注文日</th>
+            <th class="text-center">配送先</th>
+            <th class="text-center">注文商品</th>
+            <th class="text-center">支払い金額</th>
+            <th class="text-center">ステータス</th>
+            <th class="text-center">注文詳細</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%  @orders.each do |order| %>
+            <tr>
+              <td class='text-center'><%= order.created_at.strftime('%Y/%m/%d') %></td>
+              <td class='text-center'><%= order.address %></td>
+              <td class='text-center'>
+                <% order.order_details.each do |order_detail| %>
+                  <%= order_detail.item.name %><br>
+                <% end  %>
+              </td>
+              <td class='text-center'>¥ <%= (order.total_payment).round.to_s(:delimited) %></td>
+              <td class='text-center'><%= order.status_i18n %></td>
+              <td class='text-center'><%= link_to "表示する", order_path(order), class: "btn btn-sm btn-primary" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

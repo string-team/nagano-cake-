@@ -1,0 +1,49 @@
+<div class = "container-fluid haikeitop">
+    <div = "row">
+      <div class = "col-lg-3">
+        <table border="2" style="border-collapse: collapse" rules="groups">
+          <tr>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <divyoutube style="width: 100%; margin-bottom:300px">
+ 　 　<div style="width: 800px; margin:0 auto;">
+      <h2　class="tophaikei">
+        <div class="tophaikei">
+         ようこそ、ながのCAKEへ!
+        </div>
+        <div class="tophaikei">
+         このサイトは、ケーキ販売のECサイトになります。
+        </div>
+        <div class="tophaikei">
+         会員でない方も商品の閲覧はできますが
+        </div>
+        <div class="tophaikei">
+         購入には会員登録が必要になります。
+        </div>
+      </h2>
+      <h3 class="row mt-5">
+        <strong>
+          新着商品
+        </strong>
+      </h3>
+      <div class="syouhintop">
+      <p class="syouhin">
+        <%= link_to "ケーキ", item_path(@item.id) %>
+      </p>
+      <p class="syouhin">
+        <%= link_to "プリン", item_path(@item.id) %>
+      </p>
+      <p class="syouhin">
+        <%= link_to "焼き菓子", item_path(@item.id) %>
+      </p>
+      <p class="syouhin">
+        <%= link_to "キャンディ", item_path(@item.id) %>
+      </p>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

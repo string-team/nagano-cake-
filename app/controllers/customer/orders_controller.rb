@@ -1,4 +1,7 @@
 class Customer::OrdersController < ApplicationController
+  # before_action :authenticate_customer!
+  # before_action :order_new?, only: [:new]
+  
   def new
     @order = Order.new
     @addresses = Address.where(customer_id: current_customer.id)
@@ -59,6 +62,9 @@ class Customer::OrdersController < ApplicationController
   
   private
   
+  def order_new?
+    redirect_to cart_items_path, notice: "カートに商品を入れてください。" if current_customer.cart_items.blank?
+  end
   
   def order_params
     params.require(:order).permit(:payment_method, :address, :shipping_cost, :postal_code, :name, :total_payment)

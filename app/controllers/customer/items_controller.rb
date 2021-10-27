@@ -1,4 +1,6 @@
 class Customer::ItemsController < ApplicationController
+<<<<<<< HEAD
+=======
   
   
   
@@ -15,4 +17,5 @@ class Customer::ItemsController < ApplicationController
     @cart_items = CartItem.new
   end
   
+>>>>>>> develop
 end

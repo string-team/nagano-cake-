@@ -1,4 +1,6 @@
 class Customer::CartItemsController < ApplicationController
+<<<<<<< HEAD
+=======
   before_action :authenticate_customer!
 
   def create
@@ -39,4 +41,5 @@ class Customer::CartItemsController < ApplicationController
 		params.require(:cart_item).permit(:amount)
 	end
 
+>>>>>>> develop
 end

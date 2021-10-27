@@ -1,4 +1,6 @@
 class Admin::OrdersController < ApplicationController
+<<<<<<< HEAD
+=======
   before_action :authenticate_admin!
 
   def index
@@ -21,4 +23,5 @@ private
     params.require(:order).permit(:status,:making_status)
   end
   
+>>>>>>> develop
 end

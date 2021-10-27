@@ -3,14 +3,14 @@
   <div class = "row">
     <%#= form_for @order,local: true do |f| %>
 <!--テーブル税込、数量、小計-->
-      <div class = "col-md-9">
+      <div class = "col-md-8">
         <table border = "1" >
             <thead>
-                <tr align = "center">
-                    <th>商品名</th>
-                    <th>単価（税込）</th>
-                    <th>数量</th>
-                    <th>小計</th>
+                <tr align = "center" bgcolor = "#DCDCDC">
+                    <th width = "400px">商品名</th>
+                    <th width = "100px">単価（税込）</th>
+                    <th width = "150px">数量</th>
+                    <th width = "150px">小計</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,32 +35,31 @@
             </tbody>
         </table>
       </div>
-  <div class = "col-md-3">
+  <div class = "col-md-4">
     <table border = "1">
-      <tr>
-        <th>送料</th>
-        <td>800</td>
+      <tr align = "center">
+        <th width = "100px" height = "35px"  bgcolor = "#DCDCDC">送料</th>
+        <td width = "80px">800</td>
       </tr>
-      <tr>
-        <th>商品合計</th>
+      <tr align = "center">
+        <th height = "35px"  bgcolor = "#DCDCDC">商品合計</th>
         <td><%= @total.to_s(:delimited) %></td>
       </tr>
-      <tr>
-        <th>請求金額</th>
+      <tr align = "center">
+        <th height = "35px"  bgcolor = "#DCDCDC">請求金額</th>
         <td><%= (@total + 800).to_s(:delimited) %></td>
       </tr>
     </table>
   </div>
   </div>
-<div class = "col-md-12">
-<h2>支払方法</h2>
-<%= @order.payment_method_i18n %>
-</div>
-<div class = "col-md-12">
-<h2>お届け先</h2>
+<h2 class = "mt-5"><strong>支払方法</strong></h2>
+<h5><%= @order.payment_method_i18n %></h5>
+<h2 class = "mt-4"><strong>お届け先</strong></h2>
+<h5>
 〒<%= @order.postal_code %>
-<%= @order.address %>
+<%= @order.address %></br>
 <%= @order.name %>
+</h5>
 <%= form_for @order,local: true do |f| %>
 <%= f.hidden_field :payment_method ,:value => @order.payment_method %>
 <%= f.hidden_field :shipping_cost ,:value => 800 %>
@@ -73,5 +72,4 @@
       <%= f.submit "購入を確定する", class: "btn btn-success text-center btn-lg" %>
     </div>
 <% end %>
-
 </div>
